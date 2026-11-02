@@ -1,0 +1,286 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exercise 01 | Satellite Geodesy</title>
+
+<style>
+:root {
+  --bg: #07111f;
+  --panel: #101e30;
+  --border: #24364c;
+  --text: #e8f0fa;
+  --muted: #91a5bd;
+  --accent: #56d8ff;
+  --green: #79f2c0;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.7;
+}
+
+.container {
+  width: min(1000px, 90%);
+  margin: auto;
+}
+
+nav {
+  padding: 22px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+nav a {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.hero {
+  padding: 65px 0 45px;
+}
+
+.tag {
+  color: var(--green);
+  letter-spacing: 2px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: clamp(34px, 6vw, 58px);
+  line-height: 1.15;
+  margin: 15px 0;
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 18px;
+  max-width: 750px;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.meta span {
+  border: 1px solid var(--border);
+  padding: 7px 13px;
+  border-radius: 6px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+section {
+  margin: 35px 0;
+}
+
+h2 {
+  font-size: 23px;
+  margin-bottom: 18px;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 16px;
+}
+
+.card h3 {
+  margin-top: 0;
+  color: var(--accent);
+}
+
+li {
+  margin: 9px 0;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.notice {
+  border-left: 3px solid var(--accent);
+  padding: 15px 20px;
+  background: #0b1a2b;
+  border-radius: 5px;
+  color: var(--muted);
+}
+
+footer {
+  border-top: 1px solid var(--border);
+  margin-top: 60px;
+  padding: 30px 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="container">
+    <a href="../../index.html">← Back to Course Portal</a>
+  </div>
+</nav>
+
+<header class="hero container">
+  <div class="tag">ADVANCED SATELLITE GEODESY</div>
+  <h1>Exercise 01</h1>
+  <p class="subtitle">
+    GNSS Satellite Orbit Computation, Kepler Equation,
+    ECI/ECEF Transformation, and Orbital Visualization
+  </p>
+
+  <div class="meta">
+    <span>Assignment 01</span>
+    <span>Multi-GNSS</span>
+    <span>Orbit Mechanics</span>
+    <span>Numerical Methods</span>
+  </div>
+</header>
+
+<main class="container">
+
+<section>
+  <h2>01 — Overview</h2>
+  <div class="card">
+    <p>
+      In this exercise, students investigate GNSS satellite motion
+      through orbital computation, numerical solution of Kepler's
+      equation, coordinate transformations, and visualization
+      of satellite trajectories.
+    </p>
+    <p class="muted">
+      The objective is to connect theoretical orbital mechanics
+      with practical satellite positioning computations.
+    </p>
+  </div>
+</section>
+
+<section>
+  <h2>02 — Objectives</h2>
+  <div class="card">
+    <ul>
+      <li>Understand and solve Kepler's equation numerically.</li>
+      <li>Compare Newton, Fixed-Point, and Bessel-series approaches.</li>
+      <li>Compute satellite positions in ECEF and ECI frames.</li>
+      <li>Investigate satellite velocity and rotating-frame relations.</li>
+      <li>Evaluate orbital radius and orbital period.</li>
+      <li>Visualize satellite trajectories and ground tracks.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>03 — Tasks</h2>
+
+  <div class="card">
+    <h3>Task A — Kepler Equation</h3>
+    <p>
+      Download one day of a multi-GNSS navigation file from IGS
+      and implement the following methods to solve Kepler's equation:
+    </p>
+    <ul>
+      <li>Newton's Method</li>
+      <li>Fixed-Point Iteration</li>
+      <li>Bessel Series Expansion</li>
+    </ul>
+    <p>
+      Compare convergence, number of iterations, and accuracy
+      for different eccentricities.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Task B — Satellite Position</h3>
+    <p>
+      Compute satellite ECEF and ECI positions over a 24-hour
+      period using a 30-second sampling interval.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Task C — Velocity and Orbital Analysis</h3>
+    <ul>
+      <li>Compute satellite velocities.</li>
+      <li>Investigate the relation between rotating and inertial frames.</li>
+      <li>Check orbital radius and orbital period.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Task D — Visualization</h3>
+    <ul>
+      <li>Generate a 24-hour 3D satellite animation in ECI.</li>
+      <li>Generate a 24-hour 3D satellite animation in ECEF.</li>
+      <li>Plot satellite ground tracks.</li>
+      <li>Optionally use Plotly for interactive visualization.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>04 — Expected Deliverables</h2>
+  <div class="card">
+    <ul>
+      <li>Source code with clearly documented computational steps.</li>
+      <li>Tables comparing numerical methods and convergence.</li>
+      <li>Satellite position and velocity results.</li>
+      <li>Orbital analysis and verification results.</li>
+      <li>ECI/ECEF visualizations and ground tracks.</li>
+      <li>A technical report explaining the results.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>05 — Submission</h2>
+  <div class="notice">
+    <strong>Submission instructions will be announced here.</strong>
+    <p>
+      Please organize your source code, report, tables,
+      and figures in a clear and reproducible structure.
+    </p>
+  </div>
+</section>
+
+<section>
+  <h2>06 — Academic Focus</h2>
+  <div class="card">
+    <p>
+      This assignment focuses on numerical computation,
+      orbital mechanics, coordinate reference systems,
+      and scientific visualization in GNSS.
+    </p>
+    <p class="muted">
+      Course: Advanced / Geometric Satellite Geodesy
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    Geometric Satellite Geodesy · KNTU
+    <br>
+    Teaching Assistant Course Portal
+  </div>
+</footer>
+
+</body>
+</html>
